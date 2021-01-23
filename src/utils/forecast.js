@@ -9,7 +9,8 @@ const forecast = (latitude, longitude, callback) => {
         } else {
             const ctemp = body.current.temperature;
             const ftemp = body.current.feelslike;
-            callback(undefined, 'It is ' + ctemp + 'degrees. But it feels like ' + ftemp + 'degrees celsius');
+            const humidity = body.current.humidity;
+            callback(undefined, body.current.weather_descriptions[0] + ' .It is ' + ctemp + 'degrees. But it feels like ' + ftemp + 'degrees celsius. However the humidity is:' + humidity);
         }
     });
 }
